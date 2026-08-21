@@ -325,6 +325,39 @@ export const fallbackTestimonials: Testimonial[] = [
     client_photo: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
     show_on_home: true,
     home_sort_order: 2
+  },
+  {
+    id: 303,
+    name: "Priya Mehta",
+    designation: "Interior & Landscape Designer",
+    company: "Udaipur Villa Elegance",
+    rating: 5,
+    testimonial_text: "Their team converted our complex 3D metal facade drawings into flawless reality. The powder coat finish withstands harsh sunlight without fading.",
+    client_photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
+    show_on_home: true,
+    home_sort_order: 3
+  },
+  {
+    id: 304,
+    name: "Sunil Toshniwal",
+    designation: "Estate Owner",
+    company: "Bhuwana Residences",
+    rating: 5,
+    testimonial_text: "We commissioned a 16ft motorized main sliding gate and balcony railings. Zero rattle sound, smooth bearing movement, and top-tier metal fabrication quality.",
+    client_photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80",
+    show_on_home: true,
+    home_sort_order: 4
+  },
+  {
+    id: 305,
+    name: "Karanveer Rathore",
+    designation: "Project Head",
+    company: "Lakecity Heritage Resort",
+    rating: 5,
+    testimonial_text: "HRM Industries provided complete site-exact structural steel staircases and decorative brass-inlaid entrance doors. Exceptional craftsmanship in Udaipur!",
+    client_photo: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=200&q=80",
+    show_on_home: true,
+    home_sort_order: 5
   }
 ];
 
