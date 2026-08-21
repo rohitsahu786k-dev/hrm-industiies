@@ -319,7 +319,7 @@ export function CinematicFooter({ settings, categories }: CinematicFooterProps) 
             <div className="text-[11px] text-slate-600">
               <p className="font-bold text-slate-800">Registered Office & Fabrication Workshop:</p>
               <p>{address}</p>
-              <p>© {new Date().getFullYear()} HRM Industries. All rights reserved.</p>
+              <p>© {new Date().getFullYear()} HRM Industries. All rights reserved. | Powered by <a href="https://iprixmedia.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-slate-800 hover:text-hrm-orange transition-colors">iPrix Media</a></p>
             </div>
 
             <button

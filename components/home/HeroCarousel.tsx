@@ -67,7 +67,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
 
   return (
     <section
-      className="relative isolate min-h-[820px] overflow-hidden bg-[#07090b] text-white lg:min-h-[880px] flex flex-col justify-between"
+      className="relative isolate min-h-[680px] overflow-hidden bg-[#07090b] text-white lg:min-h-[720px] flex flex-col justify-between"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -96,21 +96,20 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
       <div className="absolute inset-0 -z-[4] bg-[linear-gradient(0deg,rgba(7,9,11,0.95)_0%,rgba(7,9,11,0.1)_45%,rgba(7,9,11,0.5)_100%)]" />
       <div className="pointer-events-none absolute inset-0 -z-[3] opacity-35 metal-mesh" />
 
-      {/* Top Floating Workshop Status Pill */}
-      <div className="mx-auto w-[90%] pt-8">
-        <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-black/40 px-3.5 py-1.5 backdrop-blur-md text-[11px] font-medium text-slate-300">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span className="text-white font-semibold">Udaipur Workshop Operational</span>
-          <span className="text-slate-500 hidden sm:inline">•</span>
-          <span className="text-slate-400 hidden sm:inline">Taking Custom Metalwork Commissions Across Rajasthan</span>
-        </div>
-      </div>
-
       {/* Main Hero Content Area */}
-      <div className="mx-auto flex min-h-[760px] w-[90%] flex-col justify-between px-2 pb-7 pt-28 sm:px-4 lg:min-h-[820px] lg:pt-36">
+      <div className="mx-auto flex w-[90%] flex-col justify-between py-8 sm:py-12 lg:py-14 flex-grow">
+        {/* Top Floating Workshop Status Pill */}
+        <div className="mb-6">
+          <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-black/40 px-3.5 py-1.5 backdrop-blur-md text-[11px] font-medium text-slate-300">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="text-white font-semibold">Udaipur Workshop Operational</span>
+            <span className="text-slate-500 hidden sm:inline">•</span>
+            <span className="text-slate-400 hidden sm:inline">Taking Custom Metalwork Commissions Across Rajasthan</span>
+          </div>
+        </div>
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_360px]">
           {/* Left Hero Copy */}
           <motion.div
