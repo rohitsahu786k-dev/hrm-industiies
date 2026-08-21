@@ -26,7 +26,7 @@ interface CinematicFooterProps {
 
 export function CinematicFooter({ settings, categories }: CinematicFooterProps) {
   const phonePrimary = settings.phone_primary || "+91 8290060885";
-  const phoneSecondary = settings.phone_secondary || "+91 9799647638";
+  const phoneSecondary = settings.phone_secondary || "+91 8290060885";
   const whatsappNum = settings.whatsapp_number || "918290060885";
   const whatsappUrl = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(
     settings.whatsapp_default_message || "Hello HRM Industries, I am interested in custom fabrication for my project."

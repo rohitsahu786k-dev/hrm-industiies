@@ -17,7 +17,7 @@ export const fallbackSiteSettings: SiteSettings = {
   company_name: "HRM Industries",
   tagline: "Metalwork that gives architecture its edge.",
   phone_primary: "+91 8290060885",
-  phone_secondary: "+91 9799647638",
+  phone_secondary: "+91 8290060885",
   whatsapp_number: "918290060885",
   whatsapp_default_message: "Hello HRM Industries, I am interested in custom metal fabrication for my project.",
   business_email: "hrmindustries2026@gmail.com",

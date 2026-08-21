@@ -31,7 +31,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
   ]);
 
   const primaryPhone = settings.phone_primary || "+91 8290060885";
-  const secondaryPhone = settings.phone_secondary || "+91 9799647638";
+  const secondaryPhone = settings.phone_secondary || "+91 8290060885";
   const email = settings.business_email || "hrmindustries2026@gmail.com";
   const address = settings.full_address || "Udaipur, Rajasthan, India";
   const whatsappNum = settings.whatsapp_number || "918290060885";
