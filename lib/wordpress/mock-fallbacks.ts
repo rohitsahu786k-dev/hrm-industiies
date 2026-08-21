@@ -97,8 +97,8 @@ export const fallbackBanners: Banner[] = [
     cta_label: "Start a Project",
     cta_url: "/contact",
     placement: "homepage_middle",
-    desktop_image: "/photos/banner-1.png",
-    mobile_image: "/photos/banner-1.png",
+    desktop_image: "/photos/workshop-1.png",
+    mobile_image: "/photos/workshop-1.png",
     sort_order: 1,
     is_active: true
   }
