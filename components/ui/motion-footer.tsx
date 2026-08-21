@@ -8,16 +8,16 @@ import {
   MessageCircle,
   Mail,
   MapPin,
-  Clock,
   ArrowUp,
   Instagram,
   Facebook,
   Linkedin,
-  ChevronRight,
   ShieldCheck,
-  Compass
+  CheckCircle2,
+  Building2
 } from "lucide-react";
 import { ProductCategory, SiteSettings } from "@/lib/types/wordpress";
+import { Container } from "./Container";
 
 interface CinematicFooterProps {
   settings: SiteSettings;
@@ -26,255 +26,216 @@ interface CinematicFooterProps {
 
 export function CinematicFooter({ settings, categories }: CinematicFooterProps) {
   const phonePrimary = settings.phone_primary || "+91 8290060885";
-  const phoneSecondary = settings.phone_secondary || "+91 8290060885";
   const whatsappNum = settings.whatsapp_number || "918290060885";
   const whatsappUrl = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(
     settings.whatsapp_default_message || "Hello HRM Industries, I am interested in custom fabrication for my project."
   )}`;
   const email = settings.business_email || "hrmindustries2026@gmail.com";
   const address = settings.full_address || "Udaipur, Rajasthan, India - 313001";
-  const mapUrl = settings.google_maps_url || "https://maps.google.com/?q=Udaipur+Rajasthan";
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "About Us", href: "/about" },
-    { label: "Our Capabilities", href: "/capabilities" },
-    { label: "Product Catalog", href: "/products" },
-    { label: "Featured Projects", href: "/projects" },
-    { label: "Materials & Finishes", href: "/materials-finishes" },
-    { label: "Contact Us", href: "/contact" },
-    { label: "Privacy Policy", href: "/privacy-policy" },
-  ];
-
-  const defaultCategories = categories.length > 0 ? categories : [
-    { id: 1, name: "Gates & Openings", slug: "gates-openings", count: 2 },
-    { id: 2, name: "Railings & Balustrades", slug: "railings-balustrades", count: 2 },
-    { id: 3, name: "Doors & Frames", slug: "doors-frames", count: 1 },
-    { id: 4, name: "Grills & Windows", slug: "grills-windows", count: 1 },
-    { id: 5, name: "Stairs & Structures", slug: "stairs-structures", count: 1 },
-    { id: 6, name: "Sheds & Canopies", slug: "sheds-canopies", count: 1 },
+  const citiesServed = [
+    "Udaipur", "Jaipur", "Jodhpur", "Kota", "Ajmer",
+    "Bhilwara", "Chittorgarh", "Rajsamand", "Ahmedabad", "Gujarat & Rajasthan"
   ];
 
   return (
-    <footer className="relative bg-slate-950 text-slate-300 border-t border-slate-800/80 overflow-hidden font-sans">
-      {/* Background Ambient Glow & Grid Pattern */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(245,158,11,0.08),transparent_50%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,#1e293b15_1px,transparent_1px),linear-gradient(to_bottom,#1e293b15_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
-
-      {/* Top Ticker Bar */}
-      <div className="relative z-10 border-b border-slate-800/60 bg-slate-900/60 backdrop-blur-md py-3 overflow-hidden">
-        <div className="flex w-max animate-marquee space-x-8 text-xs font-semibold uppercase tracking-widest text-slate-400">
-          <div className="flex items-center space-x-6 shrink-0">
-            <span>Precision Architectural Metalwork</span>
-            <span className="text-amber-500">✦</span>
-            <span>Custom Iron Gates & Sliding Systems</span>
-            <span className="text-amber-500">✦</span>
-            <span>Glass & Steel Balcony Railings</span>
-            <span className="text-amber-500">✦</span>
-            <span>Pressed Metal Door Frames</span>
-            <span className="text-amber-500">✦</span>
-            <span>Fabricated in Udaipur, Rajasthan</span>
-            <span className="text-amber-500">✦</span>
-          </div>
-          <div className="flex items-center space-x-6 shrink-0">
-            <span>Precision Architectural Metalwork</span>
-            <span className="text-amber-500">✦</span>
-            <span>Custom Iron Gates & Sliding Systems</span>
-            <span className="text-amber-500">✦</span>
-            <span>Glass & Steel Balcony Railings</span>
-            <span className="text-amber-500">✦</span>
-            <span>Pressed Metal Door Frames</span>
-            <span className="text-amber-500">✦</span>
-            <span>Fabricated in Udaipur, Rajasthan</span>
-            <span className="text-amber-500">✦</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Footer Content */}
-      <div className="relative z-10 w-[90%] mx-auto pt-16 pb-12">
-        {/* Call to Action Highlight Box */}
-        <div className="mb-16 p-8 rounded-3xl bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-slate-900/90 border border-slate-800 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 backdrop-blur-xl">
-          <div className="space-y-2 text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-medium">
-              <Compass className="w-3.5 h-3.5" />
-              <span>Ready for your next project?</span>
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-normal tracking-tight text-white font-outfit">
-              Have architectural drawings or custom site dimensions?
-            </h3>
-            <p className="text-slate-400 text-sm max-w-xl">
-              Send your project specifications for an initial technical estimate and profile consultation.
-            </p>
-          </div>
-          <div className="flex flex-wrap justify-center lg:justify-end gap-4 shrink-0">
-            <a
-              href={`tel:${phonePrimary.replace(/\s+/g, "")}`}
-              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-slate-800 hover:bg-slate-700 text-white font-medium text-sm transition-all duration-300 border border-slate-700 hover:border-slate-600 shadow-lg hover:shadow-slate-700/30"
-            >
-              <Phone className="w-4 h-4 text-amber-400" />
-              <span>Call {phonePrimary}</span>
-            </a>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-medium text-sm transition-all duration-300 shadow-lg shadow-emerald-900/30 hover:scale-[1.02]"
-            >
-              <MessageCircle className="w-4 h-4 text-white" />
-              <span>WhatsApp Estimate</span>
-            </a>
-          </div>
-        </div>
-
-        {/* 4-Column Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-slate-800/80">
-          {/* Column 1: Company Profile & Brand */}
-          <div className="lg:col-span-4 space-y-6">
-            <Link href="/" className="inline-flex items-center gap-3 group">
-              <div className="w-12 h-12 rounded-xl bg-slate-900 border border-amber-500/30 p-2 flex items-center justify-center group-hover:border-amber-500 transition-colors">
-                <Image
-                  src="/hrm-logo.png"
-                  alt="HRM Industries Logo"
-                  width={36}
-                  height={36}
-                  className="object-contain"
-                />
-              </div>
-              <div>
-                <span className="text-xl font-bold text-white tracking-wide font-outfit block">
-                  HRM INDUSTRIES
-                </span>
-                <span className="text-xs text-amber-400 tracking-widest uppercase font-medium">
-                  Architectural Metalwork
-                </span>
-              </div>
-            </Link>
-
-            <p className="text-slate-400 text-sm leading-relaxed">
-              {settings.footer_short_about ||
-                "HRM Industries specializes in architectural metalwork, custom iron gates, modern railings, steel door frames, window grills, and precision fabrication in Udaipur, Rajasthan."}
-            </p>
-
-            <div className="flex flex-wrap gap-2 pt-2">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 text-slate-300 text-xs border border-slate-800">
-                <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
-                <span>100% Custom to Site</span>
-              </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900 text-slate-300 text-xs border border-slate-800">
-                <MapPin className="w-3.5 h-3.5 text-amber-400" />
-                <span>Udaipur & All Rajasthan</span>
-              </span>
-            </div>
-          </div>
-
-          {/* Column 2: Quick Navigation Links */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-white text-sm font-semibold uppercase tracking-wider font-outfit border-l-2 border-amber-500 pl-3">
-              Navigation
+    <footer className="bg-[#f8fafc] text-slate-700 border-t border-slate-200/90 font-sans relative z-10">
+      <Container className="pt-16 pb-12">
+        {/* 5-Column Link Grid matching reference UI */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 lg:gap-10 pb-12">
+          {/* Column 1: OUR COMPANY */}
+          <div>
+            <h4 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-4 font-heading">
+              OUR COMPANY
             </h4>
-            <ul className="space-y-2.5 text-sm">
-              {navLinks.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    className="text-slate-400 hover:text-amber-400 transition-colors flex items-center gap-1.5 group"
-                  >
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-600 group-hover:text-amber-400 transition-colors" />
-                    <span>{item.label}</span>
-                  </Link>
-                </li>
-              ))}
+            <ul className="space-y-2.5 text-xs text-slate-600 font-medium">
+              <li>
+                <Link href="/about" className="hover:text-hrm-orange transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-hrm-orange transition-colors">
+                  Fabrication Studio
+                </Link>
+              </li>
+              <li>
+                <Link href="/capabilities" className="hover:text-hrm-orange transition-colors">
+                  Workshop Capabilities
+                </Link>
+              </li>
+              <li>
+                <Link href="/blogs" className="hover:text-hrm-orange transition-colors">
+                  Fabrication Guides & Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/projects" className="hover:text-hrm-orange transition-colors">
+                  Featured Projects
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-hrm-orange transition-colors">
+                  Contact Us
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Column 3: Product Categories */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-white text-sm font-semibold uppercase tracking-wider font-outfit border-l-2 border-amber-500 pl-3">
-              Product Range
+          {/* Column 2: USEFUL LINKS */}
+          <div>
+            <h4 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-4 font-heading">
+              USEFUL LINKS
             </h4>
-            <ul className="space-y-2.5 text-sm">
-              {defaultCategories.map((cat) => (
-                <li key={cat.id}>
-                  <Link
-                    href={`/products?category=${cat.slug}`}
-                    className="text-slate-400 hover:text-amber-400 transition-colors flex items-center gap-1.5 group"
-                  >
-                    <ChevronRight className="w-3.5 h-3.5 text-slate-600 group-hover:text-amber-400 transition-colors" />
-                    <span>{cat.name}</span>
-                  </Link>
-                </li>
-              ))}
+            <ul className="space-y-2.5 text-xs text-slate-600 font-medium">
+              <li>
+                <Link href="/products" className="hover:text-hrm-orange transition-colors">
+                  Custom Metal Fabrication
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-hrm-orange transition-colors">
+                  Architectural Gates
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-hrm-orange transition-colors">
+                  Balcony & Stair Railings
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-hrm-orange transition-colors">
+                  Pressed Metal Door Frames
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-hrm-orange transition-colors">
+                  Structural Steel Staircases
+                </Link>
+              </li>
+              <li>
+                <Link href="/materials-finishes" className="hover:text-hrm-orange transition-colors">
+                  Materials & Finishes
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Column 4: Detailed Contact Info */}
-          <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-white text-sm font-semibold uppercase tracking-wider font-outfit border-l-2 border-amber-500 pl-3">
-              Contact & Location
+          {/* Column 3: SHOP BY CATEGORY */}
+          <div>
+            <h4 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-4 font-heading">
+              SHOP BY CATEGORY
             </h4>
-            <div className="space-y-3.5 text-sm text-slate-400">
-              <div className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-amber-400 shrink-0 mt-1" />
+            <ul className="space-y-2.5 text-xs text-slate-600 font-medium">
+              <li>
+                <Link href="/products" className="hover:text-hrm-orange transition-colors">
+                  Entrance Gates
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-hrm-orange transition-colors">
+                  Balcony & Terrace Railings
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-hrm-orange transition-colors">
+                  Metal Door Frames
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-hrm-orange transition-colors">
+                  Window Security Grills
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-hrm-orange transition-colors">
+                  Steel Staircases
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-hrm-orange transition-colors">
+                  Laser Cut Facades & Canopies
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 4: QUALITY & STANDARDS */}
+          <div>
+            <h4 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-4 font-heading">
+              QUALITY STANDARDS
+            </h4>
+            <ul className="space-y-2.5 text-xs text-slate-600 font-medium">
+              <li className="flex items-center gap-1.5 text-emerald-700 font-bold">
+                <CheckCircle2 className="w-3.5 h-3.5" /> IS 2062 MS Steel Grade
+              </li>
+              <li className="flex items-center gap-1.5 text-emerald-700 font-bold">
+                <CheckCircle2 className="w-3.5 h-3.5" /> SS 304 Certified Accents
+              </li>
+              <li className="flex items-center gap-1.5 text-slate-600">
+                <CheckCircle2 className="w-3.5 h-3.5 text-hrm-orange" /> 7-Tank Anti-Rust Prep
+              </li>
+              <li className="flex items-center gap-1.5 text-slate-600">
+                <CheckCircle2 className="w-3.5 h-3.5 text-hrm-orange" /> Thermoset Powder Coat
+              </li>
+              <li className="flex items-center gap-1.5 text-slate-600">
+                <CheckCircle2 className="w-3.5 h-3.5 text-hrm-orange" /> ± 0.5mm Fitment Accuracy
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 5: NEED HELP & CONNECT */}
+          <div>
+            <h4 className="text-xs font-black uppercase tracking-wider text-slate-900 mb-4 font-heading">
+              NEED HELP?
+            </h4>
+            <ul className="space-y-3 text-xs text-slate-600 font-medium">
+              <li>
                 <a
-                  href={mapUrl}
+                  href={`tel:${phonePrimary.replace(/\s+/g, "")}`}
+                  className="flex items-center gap-2 text-slate-900 hover:text-hrm-orange font-bold transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-hrm-orange" />
+                  <span>{phonePrimary}</span>
+                </a>
+              </li>
+              <li>
+                <a
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-amber-300 transition-colors"
+                  className="flex items-center gap-2 text-emerald-700 hover:text-emerald-800 font-bold transition-colors"
                 >
-                  {address}
+                  <MessageCircle className="w-3.5 h-3.5 text-emerald-600 fill-emerald-600" />
+                  <span>WhatsApp Inquiry</span>
                 </a>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-amber-400 shrink-0" />
-                <div className="flex flex-col">
-                  <a
-                    href={`tel:${phonePrimary.replace(/\s+/g, "")}`}
-                    className="hover:text-amber-300 transition-colors text-white font-medium"
-                  >
-                    {phonePrimary}
-                  </a>
-                  <a
-                    href={`tel:${phoneSecondary.replace(/\s+/g, "")}`}
-                    className="hover:text-amber-300 transition-colors text-xs text-slate-400"
-                  >
-                    {phoneSecondary} (Alt)
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+              </li>
+              <li>
                 <a
                   href={`mailto:${email}`}
-                  className="hover:text-amber-300 transition-colors text-slate-300 break-all"
+                  className="flex items-center gap-2 text-slate-700 hover:text-hrm-orange transition-colors truncate"
                 >
-                  {email}
+                  <Mail className="w-3.5 h-3.5 text-slate-500" />
+                  <span className="truncate">{email}</span>
                 </a>
-              </div>
+              </li>
+            </ul>
 
-              <div className="flex items-center gap-3">
-                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>Mon - Sat: 9:00 AM - 8:00 PM</span>
-              </div>
-            </div>
-
-            {/* Social Icons */}
-            <div className="pt-2 flex items-center gap-3">
+            {/* Social Icons matching reference */}
+            <div className="mt-5 pt-4 border-t border-slate-200 flex items-center gap-3">
               {settings.instagram_url && (
                 <a
                   href={settings.instagram_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Instagram"
-                  className="w-9 h-9 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-400 flex items-center justify-center border border-slate-800 transition-all duration-300"
+                  className="w-8 h-8 rounded-lg bg-white border border-slate-300 hover:border-hrm-orange hover:text-hrm-orange text-slate-600 flex items-center justify-center transition-all shadow-xs"
                 >
-                  <Instagram className="w-4 h-4" />
+                  <Instagram className="w-3.5 h-3.5" />
                 </a>
               )}
               {settings.facebook_url && (
@@ -283,9 +244,9 @@ export function CinematicFooter({ settings, categories }: CinematicFooterProps) 
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Facebook"
-                  className="w-9 h-9 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-400 flex items-center justify-center border border-slate-800 transition-all duration-300"
+                  className="w-8 h-8 rounded-lg bg-white border border-slate-300 hover:border-hrm-orange hover:text-hrm-orange text-slate-600 flex items-center justify-center transition-all shadow-xs"
                 >
-                  <Facebook className="w-4 h-4" />
+                  <Facebook className="w-3.5 h-3.5" />
                 </a>
               )}
               {settings.linkedin_url && (
@@ -294,37 +255,84 @@ export function CinematicFooter({ settings, categories }: CinematicFooterProps) 
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn"
-                  className="w-9 h-9 rounded-xl bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-400 flex items-center justify-center border border-slate-800 transition-all duration-300"
+                  className="w-8 h-8 rounded-lg bg-white border border-slate-300 hover:border-hrm-orange hover:text-hrm-orange text-slate-600 flex items-center justify-center transition-all shadow-xs"
                 >
-                  <Linkedin className="w-4 h-4" />
+                  <Linkedin className="w-3.5 h-3.5" />
                 </a>
               )}
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p className="text-center sm:text-left">
-            {settings.footer_copyright_text ||
-              `© ${new Date().getFullYear()} HRM Industries. All rights reserved.`}
-          </p>
-          <div className="flex items-center gap-6">
-            <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">
-              Privacy Policy
+        {/* Middle Footprint & Certifications Bar matching reference */}
+        <div className="border-y border-slate-200 py-6 my-6 flex flex-col lg:flex-row items-center justify-between gap-6 text-xs text-slate-600">
+          <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-center lg:text-left">
+            <span className="font-bold text-slate-900">Delivery & Execution Across Rajasthan & Beyond:</span>
+            {citiesServed.map((city, idx) => (
+              <span key={city} className="text-slate-600">
+                {city}{idx < citiesServed.length - 1 ? " • " : ""}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-3 shrink-0">
+            <span className="font-bold text-slate-900">Quality Assured:</span>
+            <span className="px-2.5 py-1 rounded bg-white border border-slate-200 font-mono font-bold text-[10px] text-slate-800 shadow-2xs">
+              IS 2062 STEEL
+            </span>
+            <span className="px-2.5 py-1 rounded bg-white border border-slate-200 font-mono font-bold text-[10px] text-slate-800 shadow-2xs">
+              SS 304 GRADE
+            </span>
+            <span className="px-2.5 py-1 rounded bg-white border border-slate-200 font-mono font-bold text-[10px] text-slate-800 shadow-2xs">
+              7-TANK PRIMED
+            </span>
+          </div>
+        </div>
+
+        {/* Bottom Bar matching reference */}
+        <div className="pt-4 flex flex-col md:flex-row items-center justify-between gap-6 text-xs text-slate-500">
+          <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+            {/* Brand Logo & Name */}
+            <Link href="/" className="flex items-center gap-2 font-extrabold text-slate-900 text-sm">
+              <div className="relative w-7 h-7 flex-shrink-0">
+                <Image src="/hrm-logo.png" alt="HRM Logo" fill className="object-contain" />
+              </div>
+              <span>HRM <span className="text-hrm-orange">INDUSTRIES</span></span>
             </Link>
+
+            <div className="flex items-center gap-4 text-[11px] font-medium text-slate-600">
+              <Link href="/privacy-policy" className="hover:text-slate-900 transition-colors">
+                Terms of Use
+              </Link>
+              <span>|</span>
+              <Link href="/privacy-policy" className="hover:text-slate-900 transition-colors">
+                Security & Privacy Policy
+              </Link>
+              <span>|</span>
+              <Link href="/contact" className="hover:text-slate-900 transition-colors">
+                Contact Support
+              </Link>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-6 text-center md:text-right">
+            <div className="text-[11px] text-slate-600">
+              <p className="font-bold text-slate-800">Registered Office & Fabrication Workshop:</p>
+              <p>{address}</p>
+              <p>© {new Date().getFullYear()} HRM Industries. All rights reserved.</p>
+            </div>
+
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center gap-2 text-slate-400 hover:text-amber-400 transition-colors group cursor-pointer"
+              className="flex-shrink-0 flex flex-col items-center justify-center w-10 h-10 rounded-xl bg-white border border-slate-300 text-slate-700 hover:border-hrm-orange hover:text-hrm-orange shadow-xs transition-all cursor-pointer"
+              aria-label="Back to top"
             >
-              <span>Back to top</span>
-              <div className="w-7 h-7 rounded-full bg-slate-900 border border-slate-800 group-hover:border-amber-500 flex items-center justify-center transition-colors">
-                <ArrowUp className="w-3.5 h-3.5 text-slate-400 group-hover:text-amber-400" />
-              </div>
+              <ArrowUp className="w-4 h-4" />
+              <span className="text-[9px] font-bold uppercase tracking-wider mt-0.5">TOP</span>
             </button>
           </div>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }
