@@ -96,7 +96,7 @@ export function CinematicFooter({ settings, categories }: CinematicFooterProps) 
       </div>
 
       {/* Main Footer Content */}
-      <div className="relative z-10 w-[90%] max-w-[1400px] mx-auto pt-16 pb-12">
+      <div className="relative z-10 w-[90%] mx-auto pt-16 pb-12">
         {/* Call to Action Highlight Box */}
         <div className="mb-16 p-8 rounded-3xl bg-gradient-to-r from-slate-900/90 via-slate-900/40 to-slate-900/90 border border-slate-800 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 backdrop-blur-xl">
           <div className="space-y-2 text-center lg:text-left">

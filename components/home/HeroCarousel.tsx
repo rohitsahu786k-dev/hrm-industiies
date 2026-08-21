@@ -97,7 +97,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
       <div className="pointer-events-none absolute inset-0 -z-[3] opacity-35 metal-mesh" />
 
       {/* Top Floating Workshop Status Pill */}
-      <div className="mx-auto w-full max-w-7xl px-5 pt-8 sm:px-8 lg:px-12">
+      <div className="mx-auto w-[90%] pt-8">
         <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-black/40 px-3.5 py-1.5 backdrop-blur-md text-[11px] font-medium text-slate-300">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -110,7 +110,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
       </div>
 
       {/* Main Hero Content Area */}
-      <div className="mx-auto flex min-h-[760px] w-[90%] max-w-[1400px] flex-col justify-between px-2 pb-7 pt-28 sm:px-4 lg:min-h-[820px] lg:pt-36">
+      <div className="mx-auto flex min-h-[760px] w-[90%] flex-col justify-between px-2 pb-7 pt-28 sm:px-4 lg:min-h-[820px] lg:pt-36">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1fr)_360px]">
           {/* Left Hero Copy */}
           <motion.div
@@ -239,7 +239,7 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
 
       {/* Bottom Floating Stats & Carousel Controls Bar */}
       <div className="border-t border-white/10 bg-black/40 backdrop-blur-md py-4">
-        <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-5 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12">
+        <div className="mx-auto flex w-[90%] flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           {/* Slide Navigation Controls */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
