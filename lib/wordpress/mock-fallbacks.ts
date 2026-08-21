@@ -234,6 +234,29 @@ export const fallbackProducts: Product[] = [
     cta_text: "Discuss Stair Plan",
     cta_url: "/contact",
     category_slugs: ["stairs-structures"]
+  },
+  {
+    id: 106,
+    title: "Laser Cut Facades & Canopies",
+    slug: "laser-cut-facades-canopies",
+    excerpt: "Architectural CNC laser-cut exterior screens, decorative canopies, and metal cladding panels.",
+    content: "Bespoke laser-cut metal panels for exterior elevations, sunshades, entrance canopies, and interior space dividers.",
+    short_tagline: "Custom Laser Cut Metal Panels & Architectural Canopies",
+    product_code: "HRM-FC-06",
+    material_info: "2mm to 6mm MS / SS 304 / Aluminum Sheets",
+    finish_info: "Exterior Grade Thermoset Powder Coat",
+    applications: "Exterior Elevations, Entrance Canopies, Partition Louvers",
+    key_features: "Intricate CNC patterns, anti-fade coating, structural sub-frame anchoring.",
+    technical_notes: "Sheet gauge and sub-frame bracing engineered to meet local wind load and span requirements.",
+    hero_desktop_image: "/photos/banner-1.png",
+    gallery_images: [
+      "/photos/banner-1.png"
+    ],
+    show_on_home: true,
+    home_sort_order: 6,
+    cta_text: "Enquire Facades",
+    cta_url: "/contact",
+    category_slugs: ["sheds-canopies"]
   }
 ];
 

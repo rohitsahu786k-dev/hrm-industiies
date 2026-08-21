@@ -5,18 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Product } from "@/lib/types/wordpress";
 import { Container } from "../ui/Container";
-import { Button } from "../ui/Button";
-import {
-  ArrowRight,
-  CheckCircle2,
-  Sparkles,
-  Layers,
-  Shield,
-  SlidersHorizontal,
-  MoveUpRight,
-  Send
-} from "lucide-react";
+import { SectionHeading } from "../ui/SectionHeading";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Sparkles } from "lucide-react";
 
 interface ProductHighlightsProps {
   products: Product[];
@@ -26,12 +17,13 @@ export const ProductHighlights: React.FC<ProductHighlightsProps> = ({ products }
   const [activeCategory, setActiveCategory] = useState<string>("all");
 
   const categories = [
-    { id: "all", label: "All Metalwork" },
+    { id: "all", label: "All" },
     { id: "gates-openings", label: "Entrance Gates" },
     { id: "railings-balustrades", label: "Balcony & Railings" },
-    { id: "doors-frames", label: "Metal Door Frames" },
+    { id: "doors-frames", label: "Door Frames" },
     { id: "grills-windows", label: "Window Grills" },
-    { id: "stairs-structures", label: "Steel Stairs" }
+    { id: "stairs-structures", label: "Steel Stairs" },
+    { id: "sheds-canopies", label: "Facades & Canopies" }
   ];
 
   const filteredProducts = activeCategory === "all"
@@ -39,57 +31,44 @@ export const ProductHighlights: React.FC<ProductHighlightsProps> = ({ products }
     : products.filter((p) => p.category_slugs?.includes(activeCategory));
 
   return (
-    <section className="py-24 sm:py-32 bg-[#080b0e] text-white relative overflow-hidden dark-surface">
-      {/* Background Subtle Grid & Radial Glow */}
-      <div className="absolute inset-0 metal-mesh opacity-20 pointer-events-none" />
-      <div className="absolute -top-40 right-0 w-96 h-96 bg-hrm-orange/10 rounded-full blur-3xl pointer-events-none" />
-
-      <Container className="relative z-10">
+    <section className="py-16 sm:py-24 bg-white border-b border-slate-200 relative overflow-hidden">
+      <Container>
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-hrm-orange/15 border border-hrm-orange/30 text-hrm-orange text-xs font-bold uppercase tracking-wider mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Architectural Metalwork Portfolio</span>
-            </div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-[1.1]">
-              Engineered for Structural Rigidity & <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-hrm-orange via-amber-400 to-orange-500">
-                Architectural Distinction
-              </span>
-            </h2>
-          </div>
-
-          <Button
-            href="/products"
-            variant="primary"
-            size="lg"
-            icon
-            className="self-start md:self-auto shadow-xl shadow-hrm-orange/20"
-          >
-            All Product Lines
-          </Button>
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-hrm-orange bg-hrm-orange/10 px-3.5 py-1.5 rounded-full mb-3">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Product Catalog</span>
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+            Explore Custom Architectural Metalwork
+          </h2>
+          <p className="mt-3 text-slate-600 text-sm sm:text-base">
+            Select a category below to explore site-engineered metal fabrication solutions by HRM Industries.
+          </p>
         </div>
 
-        {/* Interactive Category Filter Pills */}
-        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 no-scrollbar">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 border ${
-                activeCategory === cat.id
-                  ? "bg-hrm-orange text-white border-hrm-orange shadow-lg shadow-hrm-orange/30 scale-105"
-                  : "bg-slate-900/80 text-slate-400 border-slate-800 hover:text-white hover:border-slate-700"
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
+        {/* Category Filter Pills */}
+        <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap mb-12">
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 ${
+                  isActive
+                    ? "border-2 border-hrm-orange text-hrm-orange bg-white shadow-sm font-bold scale-105"
+                    : "border border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:text-slate-900"
+                }`}
+              >
+                {cat.label}
+              </button>
+            );
+          })}
         </div>
 
-        {/* Dynamic Product Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* 6-Column Grid Layout matching reference UI */}
+        <motion.div layout className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
           <AnimatePresence>
             {filteredProducts.map((product) => (
               <motion.div
@@ -97,96 +76,53 @@ export const ProductHighlights: React.FC<ProductHighlightsProps> = ({ products }
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.25 }}
                 key={product.id}
-                className="group relative bg-slate-900/80 backdrop-blur-xl border border-white/10 hover:border-hrm-orange/60 rounded-2xl overflow-hidden shadow-2xl hover:shadow-hrm-orange/15 hover:-translate-y-2 transition-all duration-300 flex flex-col"
               >
-                {/* Image Preview Container */}
-                <div className="relative aspect-[16/10] bg-slate-950 overflow-hidden">
-                  <Image
-                    src={product.hero_desktop_image}
-                    alt={product.title}
-                    fill
-                    className="object-cover group-hover:scale-108 transition-transform duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-90" />
+                <Link href={`/products/${product.slug}`} className="group flex flex-col h-full">
+                  {/* Card Image Box */}
+                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-slate-100 border border-slate-200/90 shadow-sm transition-all duration-300 group-hover:shadow-md group-hover:border-hrm-orange/50">
+                    <Image
+                      src={product.hero_desktop_image}
+                      alt={product.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
 
-                  {/* Top Product Code Badge */}
-                  {product.product_code && (
-                    <span className="absolute top-4 left-4 bg-slate-950/80 backdrop-blur-md text-hrm-orange border border-hrm-orange/30 text-[11px] font-mono font-bold px-3 py-1 rounded-full shadow-md">
-                      {product.product_code}
-                    </span>
-                  )}
-
-                  {/* Top Right Custom Badge */}
-                  <span className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-slate-300 text-[10px] font-semibold px-2.5 py-1 rounded-md border border-white/10">
-                    Custom to Site
-                  </span>
-                </div>
-
-                {/* Card Body */}
-                <div className="p-6 flex flex-col flex-grow">
-                  <div className="text-xs font-bold text-hrm-orange uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                    <Layers className="w-3.5 h-3.5" />
-                    <span>{product.short_tagline || "Custom Site Fabrication"}</span>
+                    {product.product_code && (
+                      <span className="absolute top-2.5 left-2.5 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded-md">
+                        {product.product_code}
+                      </span>
+                    )}
                   </div>
 
-                  <h3 className="text-xl font-extrabold text-white group-hover:text-hrm-orange transition-colors">
+                  {/* Clean Uppercase Title below image */}
+                  <h3 className="mt-3.5 text-center font-black text-xs sm:text-sm uppercase tracking-wider text-slate-800 group-hover:text-hrm-orange transition-colors">
                     {product.title}
                   </h3>
 
-                  <p className="text-xs sm:text-sm text-slate-300 mt-3 line-clamp-2 leading-relaxed flex-grow">
-                    {product.excerpt}
-                  </p>
-
-                  {/* Technical Material Specs */}
-                  {product.material_info && (
-                    <div className="mt-4 pt-3 border-t border-slate-800 flex items-center gap-2 text-xs text-slate-400">
-                      <Shield className="w-4 h-4 text-hrm-orange flex-shrink-0" />
-                      <span className="truncate">{product.material_info}</span>
-                    </div>
+                  {product.short_tagline && (
+                    <p className="mt-0.5 text-center text-[11px] font-medium text-slate-500 line-clamp-1 px-1">
+                      {product.short_tagline}
+                    </p>
                   )}
-
-                  {/* Footer Action Links */}
-                  <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between gap-3">
-                    <Link
-                      href={`/products/${product.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-white hover:text-hrm-orange transition-colors"
-                    >
-                      <span>Specifications</span>
-                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                    </Link>
-
-                    <Link
-                      href={`/contact?product=${encodeURIComponent(product.title)}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold px-3.5 py-1.5 rounded-lg bg-hrm-orange hover:bg-hrm-orange-dark text-white shadow-md shadow-hrm-orange/25 transition-all"
-                    >
-                      <Send className="w-3 h-3" />
-                      <span>Get Estimate</span>
-                    </Link>
-                  </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </AnimatePresence>
         </motion.div>
 
-        {/* Bottom Helper Bar */}
-        <div className="mt-14 p-6 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3 text-sm text-slate-300">
-            <div className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-            <span>Have custom architectural drawings or a specific section profile requirement?</span>
-          </div>
+        {/* View All Products CTA Link */}
+        <div className="mt-14 text-center">
           <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-hrm-orange hover:text-white px-4 py-2 rounded-xl bg-hrm-orange/10 hover:bg-hrm-orange border border-hrm-orange/30 transition-all flex-shrink-0"
+            href="/products"
+            className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-white bg-hrm-orange hover:bg-hrm-orange-dark px-8 py-3.5 rounded-full shadow-lg shadow-hrm-orange/20 transition-all hover:scale-105"
           >
-            <span>Submit Your Drawings For Review</span>
-            <MoveUpRight className="w-3.5 h-3.5" />
+            <span>View Complete Product Portfolio</span>
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </Container>
     </section>
   );
 };
-

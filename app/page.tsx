@@ -93,9 +93,9 @@ export default async function HomePage() {
 
       <main className="flex-grow">
         <HeroCarousel slides={heroSlides} />
+        <ProductHighlights products={products} />
         <ValueProp />
         <IntroSection />
-        <ProductHighlights products={products} />
         <MiddleBanner banner={middleBanner} />
         <ProjectHighlights projects={projects} />
         <DetailsCraftsmanship />
