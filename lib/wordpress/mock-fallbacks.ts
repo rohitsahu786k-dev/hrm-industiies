@@ -181,7 +181,8 @@ export const fallbackProducts: Product[] = [
     hero_desktop_image: "/photos/door-1.png",
     hero_mobile_image: "/photos/door-1.png",
     gallery_images: [
-      "/photos/door-1.png"
+      "/photos/door-1.png",
+      "/photos/project-2.png"
     ],
     show_on_home: true,
     home_sort_order: 3,
@@ -203,8 +204,10 @@ export const fallbackProducts: Product[] = [
     key_features: "Clean weld joints, concealed masonry anchors, zero shadow distortion, durable paint coating.",
     technical_notes: "Bar spacing kept at safety standards while allowing maximum light penetration and ventilation.",
     hero_desktop_image: "/photos/grill-1.png",
+    hero_mobile_image: "/photos/grill-1.png",
     gallery_images: [
-      "/photos/grill-1.png"
+      "/photos/grill-1.png",
+      "/photos/project-3.png"
     ],
     show_on_home: true,
     home_sort_order: 4,
@@ -226,8 +229,10 @@ export const fallbackProducts: Product[] = [
     key_features: "High load capacity, zero bounce deflection, modular bolt assembly options.",
     technical_notes: "Structural base plates and anchor bolts engineered according to total floor height and rise/run ratios.",
     hero_desktop_image: "/photos/staircase-1.png",
+    hero_mobile_image: "/photos/staircase-1.png",
     gallery_images: [
-      "/photos/staircase-1.png"
+      "/photos/staircase-1.png",
+      "/photos/project-4.png"
     ],
     show_on_home: true,
     home_sort_order: 5,
@@ -249,6 +254,7 @@ export const fallbackProducts: Product[] = [
     key_features: "Intricate CNC patterns, anti-fade coating, structural sub-frame anchoring.",
     technical_notes: "Sheet gauge and sub-frame bracing engineered to meet local wind load and span requirements.",
     hero_desktop_image: "/photos/banner-1.png",
+    hero_mobile_image: "/photos/banner-1.png",
     gallery_images: [
       "/photos/banner-1.png"
     ],
