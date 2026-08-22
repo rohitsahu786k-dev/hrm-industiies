@@ -330,7 +330,6 @@ export const fallbackProducts: Product[] = [
     cta_url: "/contact",
     category_slugs: ["metal-furniture"]
   }
-  }
 ];
 
 export const fallbackProjectTypes: ProjectType[] = [
