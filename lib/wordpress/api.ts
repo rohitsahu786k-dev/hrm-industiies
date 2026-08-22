@@ -455,9 +455,29 @@ export async function getProcessSteps(): Promise<ProcessStep[]> {
   return fallbackProcessSteps;
 }
 
-// 11. Blog Posts
+// Helper function to fetch posts directly from WordPress REST API
+async function fetchDirectWPPosts(endpoint: string) {
+  try {
+    const res = await fetch(`${WP_API_URL}${endpoint}`, {
+      headers: {
+        "Authorization": WP_AUTH,
+        "Accept": "application/json"
+      },
+      next: { revalidate: 30 }
+    });
+    if (res.ok) {
+      return await res.json();
+    }
+  } catch (error) {
+    console.warn("Direct WordPress fetch notice:", error);
+  }
+  return null;
+}
+
+// 11. Blog Posts (Fetches live from WordPress)
 export async function getBlogPosts(limit = 10): Promise<BlogPost[]> {
-  const data = await fetchWP(`/wp/v2/posts?per_page=${limit}&_embed`);
+  // Always try live WordPress posts first
+  const data = (await fetchDirectWPPosts(`/wp/v2/posts?per_page=${limit}&_embed`)) || (await fetchWP(`/wp/v2/posts?per_page=${limit}&_embed`));
   if (Array.isArray(data) && data.length > 0) {
     const posts: BlogPost[] = [];
     for (const item of data) {
@@ -479,7 +499,7 @@ export async function getBlogPosts(limit = 10): Promise<BlogPost[]> {
 }
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
-  const data = await fetchWP(`/wp/v2/posts?slug=${slug}`);
+  const data = (await fetchDirectWPPosts(`/wp/v2/posts?slug=${slug}`)) || (await fetchWP(`/wp/v2/posts?slug=${slug}`));
   if (Array.isArray(data) && data.length > 0) {
     const item = data[0];
     const featImg = await getMediaUrl(item.featured_media);
@@ -494,6 +514,6 @@ export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> 
       featured_image: featImg || fallbackBlogPosts[0].featured_image
     };
   }
-  const fallback = fallbackBlogPosts.find(b => b.slug === slug);
+  const fallback = fallbackBlogPosts.find((p) => p.slug === slug);
   return fallback || null;
 }
