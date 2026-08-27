@@ -25,8 +25,9 @@ interface CinematicFooterProps {
 }
 
 export function CinematicFooter({ settings, categories }: CinematicFooterProps) {
-  const phonePrimary = settings.phone_primary || "+91 8290060885";
-  const whatsappNum = settings.whatsapp_number || "918290060885";
+  const phonePrimary = settings.phone_primary || "+91 97996 47638";
+  const phoneSecondary = settings.phone_secondary || "+91 82900 60885";
+  const whatsappNum = settings.whatsapp_number || "919799647638";
   const whatsappUrl = `https://wa.me/${whatsappNum}?text=${encodeURIComponent(
     settings.whatsapp_default_message || "Hello HRM Industries, I am interested in custom fabrication for my project."
   )}`;
@@ -200,9 +201,20 @@ export function CinematicFooter({ settings, categories }: CinematicFooterProps) 
                   className="flex items-center gap-2 text-slate-900 hover:text-hrm-orange font-bold transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5 text-hrm-orange" />
-                  <span>{phonePrimary}</span>
+                  <span>{phonePrimary} (Primary)</span>
                 </a>
               </li>
+              {phoneSecondary && (
+                <li>
+                  <a
+                    href={`tel:${phoneSecondary.replace(/\s+/g, "")}`}
+                    className="flex items-center gap-2 text-slate-600 hover:text-hrm-orange transition-colors"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-slate-400" />
+                    <span>{phoneSecondary}</span>
+                  </a>
+                </li>
+              )}
               <li>
                 <a
                   href={whatsappUrl}
@@ -319,7 +331,7 @@ export function CinematicFooter({ settings, categories }: CinematicFooterProps) 
             <div className="text-[11px] text-slate-600">
               <p className="font-bold text-slate-800">Registered Office & Fabrication Workshop:</p>
               <p>{address}</p>
-              <p>© {new Date().getFullYear()} HRM Industries. All rights reserved. | Powered by <a href="https://iprixmedia.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-slate-800 hover:text-hrm-orange transition-colors">iPrix Media</a></p>
+              <p>© {new Date().getFullYear()} HRM Industries. All rights reserved. | Powered by <a href="https://iprixmedia.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-slate-800 hover:text-hrm-orange transition-colors">IPrix Media</a></p>
             </div>
 
             <button

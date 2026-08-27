@@ -156,22 +156,26 @@ export const HeroCarousel: React.FC<HeroCarouselProps> = ({ slides }) => {
                   size="lg"
                   className="group"
                 >
-                  {currentSlide.secondary_cta_text}
-                  <MoveUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                    <span>{currentSlide.secondary_cta_text}</span>
+                    <MoveUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 flex-shrink-0" />
+                  </span>
                 </Button>
               ) : (
                 <Button href="/products" variant="outlineOnDark" size="lg" className="group">
-                  Explore Products
-                  <MoveUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  <span className="inline-flex items-center gap-2 whitespace-nowrap">
+                    <span>Explore Products</span>
+                    <MoveUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1 flex-shrink-0" />
+                  </span>
                 </Button>
               )}
 
               <a
-                href="tel:+918290060885"
+                href="tel:+919799647638"
                 className="hidden sm:inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-300 hover:text-white px-4 py-3 rounded-xl border border-white/10 hover:border-hrm-orange/40 bg-white/5 backdrop-blur-sm transition-all"
               >
                 <PhoneCall className="w-3.5 h-3.5 text-hrm-orange" />
-                <span>Quick Call: +91 8290060885</span>
+                <span>Quick Call: +91 97996 47638</span>
               </a>
             </div>
 

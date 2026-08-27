@@ -53,7 +53,7 @@ export default async function PrivacyPolicyPage() {
 
               <h3 className="text-base font-bold text-hrm-charcoal pt-2">4. Contact Us</h3>
               <p>
-                If you have questions regarding this Privacy Policy, contact us at <strong>hrmindustries2026@gmail.com</strong> or call <strong>+91 8290060885</strong>.
+                If you have questions regarding this Privacy Policy, contact us at <strong>hrmindustries2026@gmail.com</strong> or call <strong>+91 97996 47638</strong>.
               </p>
             </div>
           </div>

@@ -41,7 +41,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
   const allProducts = await getProducts();
   const relatedProducts = allProducts.filter(p => p.slug !== product.slug).slice(0, 3);
 
-  const whatsappNum = settings.whatsapp_number || "918290060885";
+  const whatsappNum = settings.whatsapp_number || "919799647638";
   const whatsappMsg = encodeURIComponent(`Hello HRM Industries, I am interested in ${product.title}. I would like to discuss my project requirements.`);
   const whatsappUrl = `https://wa.me/${whatsappNum}?text=${whatsappMsg}`;
 

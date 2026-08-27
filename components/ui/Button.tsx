@@ -40,30 +40,30 @@ export const Button: React.FC<ButtonProps> = ({
     whatsapp: "bg-[#25D366] text-white hover:bg-[#1EBE57] shadow-md border border-[#25D366] transition-all duration-300"
   };
 
-  const baseClasses = `group inline-flex items-center justify-center gap-2 rounded-lg font-sans text-center transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
+  const baseClasses = `group inline-flex items-center justify-center gap-2 rounded-lg font-sans text-center whitespace-nowrap transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;
 
   if (href) {
     const isExternal = href.startsWith("http://") || href.startsWith("https://") || href.startsWith("https://wa.me") || href.startsWith("tel:");
     if (isExternal) {
       return (
         <a href={href} target="_blank" rel="noopener noreferrer" className={baseClasses}>
-          <span>{children}</span>
-          {icon && <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />}
+          <span className="inline-flex items-center gap-2 whitespace-nowrap">{children}</span>
+          {icon && <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 flex-shrink-0" />}
         </a>
       );
     }
     return (
       <Link href={href} className={baseClasses}>
-        <span>{children}</span>
-        {icon && <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />}
+        <span className="inline-flex items-center gap-2 whitespace-nowrap">{children}</span>
+        {icon && <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 flex-shrink-0" />}
       </Link>
     );
   }
 
   return (
     <button type={type} onClick={onClick} disabled={disabled} className={baseClasses}>
-      <span>{children}</span>
-      {icon && <ArrowRight className="w-4 h-4" />}
+      <span className="inline-flex items-center gap-2 whitespace-nowrap">{children}</span>
+      {icon && <ArrowRight className="w-4 h-4 flex-shrink-0" />}
     </button>
   );
 };

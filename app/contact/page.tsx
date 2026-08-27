@@ -30,11 +30,11 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
     getProductCategories()
   ]);
 
-  const primaryPhone = settings.phone_primary || "+91 8290060885";
-  const secondaryPhone = settings.phone_secondary || "+91 8290060885";
+  const primaryPhone = settings.phone_primary || "+91 97996 47638";
+  const secondaryPhone = settings.phone_secondary || "+91 82900 60885";
   const email = settings.business_email || "hrmindustries2026@gmail.com";
   const address = settings.full_address || "Udaipur, Rajasthan, India";
-  const whatsappNum = settings.whatsapp_number || "918290060885";
+  const whatsappNum = settings.whatsapp_number || "919799647638";
   const defaultMsg = encodeURIComponent("Hello HRM Industries, I want to discuss a fabrication project.");
   const whatsappUrl = `https://wa.me/${whatsappNum}?text=${defaultMsg}`;
 

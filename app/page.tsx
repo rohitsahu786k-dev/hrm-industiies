@@ -4,13 +4,10 @@ import {
   getSiteSettings,
   getHeroSlides,
   getAnnouncements,
-  getBanners,
   getProductCategories,
   getProducts,
   getProjects,
   getTestimonials,
-  getWhyHRMFeatures,
-  getProcessSteps,
   getBlogPosts
 } from "@/lib/wordpress/api";
 
@@ -19,19 +16,15 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
 import { HeroCarousel } from "@/components/home/HeroCarousel";
-import { ValueProp } from "@/components/home/ValueProp";
-import { IntroSection } from "@/components/home/IntroSection";
-import { ProductHighlights } from "@/components/home/ProductHighlights";
-import { MiddleBanner } from "@/components/home/MiddleBanner";
-import { ProjectHighlights } from "@/components/home/ProjectHighlights";
-import { DetailsCraftsmanship } from "@/components/home/DetailsCraftsmanship";
-import { WhyHRMSection } from "@/components/home/WhyHRMSection";
-import { ProcessSection } from "@/components/home/ProcessSection";
-import { CapabilitiesSection } from "@/components/home/CapabilitiesSection";
-import { MaterialsPreview } from "@/components/home/MaterialsPreview";
-import { TestimonialSection } from "@/components/home/TestimonialSection";
+import { ArchitecturalMarquee } from "@/components/home/ArchitecturalMarquee";
+import { ProductCatalogGrid } from "@/components/home/ProductCatalogGrid";
+import { ArchitecturalBentoGrid } from "@/components/home/ArchitecturalBentoGrid";
+import { CountUpStats } from "@/components/home/CountUpStats";
+import { WorkShowcaseTabs } from "@/components/home/WorkShowcaseTabs";
+import { InteractiveProcessTimeline } from "@/components/home/InteractiveProcessTimeline";
+import { TestimonialsMarquee } from "@/components/home/TestimonialsMarquee";
 import { BlogHighlights } from "@/components/home/BlogHighlights";
-import { FinalCTA } from "@/components/home/FinalCTA";
+import { ConsolidatedConsultationCard } from "@/components/home/ConsolidatedConsultationCard";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
@@ -62,29 +55,21 @@ export default async function HomePage() {
     settings,
     heroSlides,
     announcements,
-    middleBanners,
     categories,
-    products,
+    allProducts,
     projects,
     testimonials,
-    whyFeatures,
-    processSteps,
     blogPosts
   ] = await Promise.all([
     getSiteSettings(),
     getHeroSlides(),
     getAnnouncements(),
-    getBanners("homepage_middle"),
     getProductCategories(),
-    getProducts(undefined, true),
+    getProducts(), // Load all products
     getProjects(true),
     getTestimonials(),
-    getWhyHRMFeatures(),
-    getProcessSteps(),
     getBlogPosts(3)
   ]);
-
-  const middleBanner = middleBanners.length > 0 ? middleBanners[0] : null;
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-hrm-charcoal">
@@ -92,23 +77,41 @@ export default async function HomePage() {
       <Header settings={settings} categories={categories} />
 
       <main className="flex-grow">
+        {/* 1. Hero Master Showcase */}
         <HeroCarousel slides={heroSlides} />
-        <ProductHighlights products={products} />
-        <ValueProp />
-        <IntroSection />
-        <MiddleBanner banner={middleBanner} />
-        <ProjectHighlights projects={projects} />
-        <DetailsCraftsmanship />
-        <WhyHRMSection features={whyFeatures} />
-        <ProcessSection steps={processSteps} />
-        <CapabilitiesSection />
-        <MaterialsPreview />
-        <TestimonialSection testimonials={testimonials} />
+
+        {/* 2. 21st-Style Infinite Architectural Credentials Marquee */}
+        <ArchitecturalMarquee />
+
+        {/* 3. Interactive Workshop Product Catalog & Category Explorer */}
+        <ProductCatalogGrid products={allProducts} />
+
+        {/* 4. 21st-Style Architectural 3D Bento Grid */}
+        <ArchitecturalBentoGrid />
+
+        {/* 5. 21st-Style Animated Count Up Key Metrics */}
+        <CountUpStats />
+
+        {/* 6. Interactive Tabbed Portfolio & Recent Projects Showcase */}
+        <WorkShowcaseTabs products={allProducts} projects={projects} />
+
+        {/* 7. 4-Step Interactive Execution Journey */}
+        <InteractiveProcessTimeline />
+
+        {/* 8. Verified Testimonials & Client Reviews */}
+        <TestimonialsMarquee testimonials={testimonials} />
+
+        {/* 9. Technical Guides & Architectural Insights */}
         <BlogHighlights posts={blogPosts} />
-        <FinalCTA settings={settings} />
+
+        {/* 10. Consolidated Luxury Consultation & Instant Estimate Hub */}
+        <ConsolidatedConsultationCard settings={settings} />
       </main>
 
       <Footer settings={settings} categories={categories} />
     </div>
   );
 }
+
+
+

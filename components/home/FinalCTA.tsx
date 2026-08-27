@@ -16,12 +16,12 @@ export const FinalCTA: React.FC<FinalCTAProps> = ({ settings }) => {
     settings.contact_section_intro ||
     "Custom gates, railings, door frames, and architectural steelwork engineered with precision in Udaipur, Rajasthan.";
 
-  const whatsappNum = settings.whatsapp_number || "918290060885";
+  const whatsappNum = settings.whatsapp_number || "919799647638";
   const defaultMsg = encodeURIComponent(
     settings.whatsapp_default_message || "Hello HRM Industries, I am interested in custom fabrication."
   );
   const whatsappUrl = `https://wa.me/${whatsappNum}?text=${defaultMsg}`;
-  const phone = settings.phone_primary || "+91 8290060885";
+  const phone = settings.phone_primary || "+91 97996 47638";
 
   return (
     <section className="py-16 sm:py-24 bg-white border-t border-slate-200 relative overflow-hidden">

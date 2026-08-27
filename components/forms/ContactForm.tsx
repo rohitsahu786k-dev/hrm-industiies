@@ -43,7 +43,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ settings, initialProdu
     }, 1200);
   };
 
-  const whatsappNum = settings.whatsapp_number || "918290060885";
+  const whatsappNum = settings.whatsapp_number || "919799647638";
   const whatsappMsg = encodeURIComponent(
     `Hello HRM Industries, I want a quote:\n\nName: ${formData.name || 'Client'}\nPhone: ${formData.phone}\nRequirement: ${formData.product || 'Custom Metal Fabrication'}\nLocation: ${formData.location}\nDimensions: ${formData.width || '-'} W x ${formData.height || '-'} H\nDetails: ${formData.message || 'Please contact me.'}`
   );
@@ -102,7 +102,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ settings, initialProdu
             required
             value={formData.phone}
             onChange={handleChange}
-            placeholder="+91 8290060885"
+            placeholder="+91 97996 47638"
             className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-hrm-orange/50 focus:border-hrm-orange text-sm bg-slate-50 font-medium"
           />
         </div>

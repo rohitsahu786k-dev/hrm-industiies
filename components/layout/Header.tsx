@@ -57,8 +57,9 @@ export const Header: React.FC<HeaderProps> = ({ settings, categories }) => {
     { label: "Contact", href: "/contact" },
   ];
 
-  const primaryPhone = settings.phone_primary || "+91 8290060885";
-  const whatsappNum = settings.whatsapp_number || "918290060885";
+  const primaryPhone = settings.phone_primary || "+91 97996 47638";
+  const secondaryPhone = settings.phone_secondary || "+91 82900 60885";
+  const whatsappNum = settings.whatsapp_number || "919799647638";
   const defaultMsg = encodeURIComponent(
     settings.whatsapp_default_message || "Hello HRM Industries, I am interested in custom metal fabrication."
   );
@@ -352,8 +353,18 @@ export const Header: React.FC<HeaderProps> = ({ settings, categories }) => {
                   className="flex items-center justify-center gap-2 py-3 border border-slate-300 rounded-xl text-slate-800 font-bold text-sm bg-slate-50"
                 >
                   <Phone className="w-4 h-4 text-hrm-orange" />
-                  <span>Call {primaryPhone}</span>
+                  <span>Call {primaryPhone} (Primary)</span>
                 </a>
+
+                {secondaryPhone && (
+                  <a
+                    href={`tel:${secondaryPhone.replace(/\s+/g, "")}`}
+                    className="flex items-center justify-center gap-2 py-2.5 border border-slate-200 rounded-xl text-slate-700 font-medium text-xs bg-slate-50/50"
+                  >
+                    <Phone className="w-3.5 h-3.5 text-slate-400" />
+                    <span>Alt Call: {secondaryPhone}</span>
+                  </a>
+                )}
 
                 <a
                   href={whatsappUrl}

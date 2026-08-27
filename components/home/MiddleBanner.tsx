@@ -78,7 +78,7 @@ export const MiddleBanner: React.FC<MiddleBannerProps> = ({ banner }) => {
                 </Link>
 
                 <Link
-                  href="https://wa.me/918290060885?text=Hello%20HRM%20Industries%2C%20I%20want%20to%20discuss%20custom%20fabrication."
+                  href="https://wa.me/919799647638?text=Hello%20HRM%20Industries%2C%20I%20want%20to%20discuss%20custom%20fabrication."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm px-6 py-3.5 rounded-full shadow-lg transition-all hover:scale-105"

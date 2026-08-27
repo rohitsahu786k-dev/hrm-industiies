@@ -16,9 +16,9 @@ import {
 export const fallbackSiteSettings: SiteSettings = {
   company_name: "HRM Industries",
   tagline: "Metalwork that gives architecture its edge.",
-  phone_primary: "+91 8290060885",
-  phone_secondary: "+91 8290060885",
-  whatsapp_number: "918290060885",
+  phone_primary: "+91 97996 47638",
+  phone_secondary: "+91 82900 60885",
+  whatsapp_number: "919799647638",
   whatsapp_default_message: "Hello HRM Industries, I am interested in custom metal fabrication for my project.",
   business_email: "hrmindustries2026@gmail.com",
   full_address: "Udaipur, Rajasthan, India",
